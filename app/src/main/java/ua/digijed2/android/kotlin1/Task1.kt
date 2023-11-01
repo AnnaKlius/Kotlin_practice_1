@@ -29,6 +29,14 @@ fun task1() {
     val javaYearInitial = 1815
     val javaFinalPopulation = 139
     val javaFinalYear = 2020
+    println(" China's population rose from approximately $chinaInitial million in $chinaYearInitial to $chinaInter million in $chinaYearInter,\n" +
+            " and now stands at over $chinaFinalPopulation billion. The population of the Indian subcontinent, which was\n" +
+            " about $indiaInitial million in $indiaYearInitial, increased to $indiaInter million in $indiaYearInter today, India, Pakistan and\n" +
+            " Bangladesh are collectively home to about $indiaFinalPopulation billion people. Java, an island in Indonesia,\n" +
+            " had about $javaInitial million inhabitants in $javaYearInitial; it had a population of over $javaFinalPopulation million in $javaFinalYear.")
+}
 
-
+fun main() {
+    println("Hello, Klyus Anna Android Group")
+    task1()
 }

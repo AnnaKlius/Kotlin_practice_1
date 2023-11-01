@@ -9,7 +9,7 @@ package ua.digijed2.android.kotlin1
 //  sleepIn(true, false) → false
 //  sleepIn(false, true) → true
 fun sleepIn(weekday: Boolean, vacation: Boolean): Boolean {
-    return false
+    return !weekday || vacation
 }
 
 // TODO: У нас є папуга, який голосно розмовляє. Параметр "hour" - це поточна година
@@ -20,7 +20,7 @@ fun sleepIn(weekday: Boolean, vacation: Boolean): Boolean {
 //  parrotTrouble(true, 7) → false
 //  parrotTrouble(false, 6) → false
 fun parrotTrouble(talking: Boolean, hour: Int): Boolean {
-    return false
+    return talking && (hour < 7 || hour > 20)
 }
 
 // TODO: Ми хочемо скласти ряд цеглинок завдовжки goal сантиметрів.
@@ -31,7 +31,9 @@ fun parrotTrouble(talking: Boolean, hour: Int): Boolean {
 //  makeBricks(3, 1, 9) → false
 //  makeBricks(3, 2, 10) → true
 fun makeBricks(small: Int, big: Int, goal: Int): Boolean {
-    return false
+    val maxBigLength = big * 5
+    val remainingGoal = goal - maxBigLength
+    return small >= remainingGoal && remainingGoal >= 0
 }
 
 // TODO: За заданими 3 значеннями типу Int, a b c, повернути їх суму. Однак, якщо одне зі
@@ -42,7 +44,14 @@ fun makeBricks(small: Int, big: Int, goal: Int): Boolean {
 //  luckySum(1, 2, 13) → 3
 //  luckySum(1, 13, 3) → 1
 fun luckySum(a: Int, b: Int, c: Int): Int {
-    return 0
+    if (a == 13) {
+        return 0
+    } else if (b == 13) {
+        return a
+    } else if (c == 13) {
+        return a + b
+    }
+    return a + b + c
 }
 
 // TODO: Задано три числа a b c, одне з яких є малим, друге - середнім, а третє - великим.
@@ -54,5 +63,9 @@ fun luckySum(a: Int, b: Int, c: Int): Int {
 //  evenlySpaced(4, 6, 2) → true
 //  evenlySpaced(4, 6, 3) → false
 fun evenlySpaced(a: Int, b: Int, c: Int): Boolean {
-    return false;
+    val min = minOf(a, b, c)
+    val max = maxOf(a, b, c)
+    val mid = a + b + c - min - max
+
+    return mid - min == max - mid
 }
